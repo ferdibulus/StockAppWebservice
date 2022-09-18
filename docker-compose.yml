@@ -11,7 +11,7 @@ services:
       dockerfile: ./Dockerfile
     container_name: my_app-server
     ports:
-      - 8181:8181
+      - "8181:8181"
     restart: always
     depends_on:
       - db # This service depends on mysql. Start that first.
@@ -20,7 +20,7 @@ services:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
       network:
-        lastsec
+        stock-app_default
   # Database Service (Mysql)
   db:
     image: mysql:5.7
@@ -31,4 +31,4 @@ services:
       MYSQL_DATABASE: stock
       MYSQL_ROOT_PASSWORD: root
       network:
-        lastsec
+        stock-app_default
