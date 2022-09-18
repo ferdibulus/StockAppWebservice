@@ -1,0 +1,34 @@
+
+version: '3.7'
+
+# Define services
+services:
+  # App backend service
+  app-server:
+    # Configuration for building the docker image for the backend service
+    build:
+      context: . # Use an image built from the specified dockerfile in the `polling-app-server` directory.
+      dockerfile: ./Dockerfile
+    container_name: my_app-server
+    ports:
+      - 8181:8181
+    restart: always
+    depends_on:
+      - db # This service depends on mysql. Start that first.
+    environment: # Pass environment variables to the service
+      SPRING_DATASOURCE_URL: jdbc:mysql://my_mysql:3306/stock?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      network:
+        lastsec
+  # Database Service (Mysql)
+  db:
+    image: mysql:5.7
+    container_name: my_mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: stock
+      MYSQL_ROOT_PASSWORD: root
+      network:
+        lastsec
