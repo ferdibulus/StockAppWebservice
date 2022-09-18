@@ -10,9 +10,6 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
       -
-        name: Login to GitHub Container Registry
-        run: echo | docker login ghcr.io -u ferdibulus --password-stdin
-      -
         name: Pull image to use as a cache
         run: docker pull ghcr.io/ferdibulus/StockAppWebservice:latest || exit 0
       -
