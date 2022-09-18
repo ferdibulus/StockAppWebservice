@@ -11,13 +11,13 @@ jobs:
         uses: actions/checkout@v2
       -
         name: Pull image to use as a cache
-        run: docker pull ghcr.io/ferdibulus/StockAppWebservice:latest || exit 0
+        run: docker pull ghcr.io/ferdibulus/stockappwebservice:latest || exit 0
       -
         name: Build Docker image
-        run: docker build . --cache-from ghcr.io/ferdibulus/StockAppWebservice:latest --tag ghcr.io/ferdibulus/StockAppWebservice:latest
+        run: docker build . --cache-from ghcr.io/ferdibulus/stockappwebservice:latest --tag ghcr.io/ferdibulus/stockappwebservice:latest
       -
         name: Push the image to GitHub Container Registry
-        run: docker push ghcr.io/ferdibulus/StockAppWebservice:latest
+        run: docker push ghcr.io/ferdibulus/stockappwebservice:latest
       -
         name: VPS - pull image and run app containters
         uses: appleboy/ssh-action@master
