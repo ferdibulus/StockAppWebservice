@@ -17,15 +17,6 @@ jobs:
       - name: Maven Package
         run: mvn -B clean package -DskipTests
       -
-        name: Checkout
-        uses: actions/checkout@v2
-      -
-        name: Pull image to use as a cache
-        run: docker pull ferdibulus/stockappwebservice:latest || exit 0
-      -
-        name: Build Docker image
-        run: docker build . --cache-from ferdibulus/stockappwebservice:latest --tag ferdibulus/stockappwebservice:latest
-      -
         name: Login To DockerHub
         uses: docker/login-action@v1
         with:
