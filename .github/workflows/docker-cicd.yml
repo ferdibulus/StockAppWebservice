@@ -26,8 +26,18 @@ jobs:
         name: Build Docker image
         run: docker build . --cache-from ferdibulus/stockappwebservice:latest --tag ferdibulus/stockappwebservice:latest
       -
+        name: Login To DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ferdibulus
+          password: dckr_pat_fUa49qOK2W0QiD2tJCDWAvZeYu4
+      -
         name: Push the image to GitHub Container Registry
-        run: docker push ferdibulus/stockappwebservice:latest
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags : ferdibulus/stockappwebservice, ferdibulus/stockappwebservice:${{ github.run_number }}
       -
         name: VPS - pull image and run app containters
         uses: appleboy/ssh-action@master
