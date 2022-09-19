@@ -16,8 +16,6 @@ jobs:
           java-version: 17.0.0
       - name: Maven Package
         run: mvn -B clean package -DskipTests
-      - name: Maven Verify
-        run: mvn -B clean verify
       -
         name: Checkout
         uses: actions/checkout@v2
