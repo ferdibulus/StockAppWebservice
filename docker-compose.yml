@@ -31,4 +31,4 @@ services:
       MYSQL_DATABASE: stock
       MYSQL_ROOT_PASSWORD: root
       network:
-        stock-app_default
+        sqlcon
