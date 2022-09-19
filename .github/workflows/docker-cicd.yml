@@ -36,6 +36,7 @@ jobs:
           host: 92.205.30.150
           username: ferdibulus
           password: Melez.Prens152@
+          port: 22
           script: |
-            docker-compose pull ferdibulus/stockappwebservice:latest
-            docker-compose up -d --no-deps
+            sudo docker pull ferdibulus/stockappwebservice:latest
+            sudo docker run -d -p 8181:8181 --network sqlcon ferdibulus/stockappwebservice
