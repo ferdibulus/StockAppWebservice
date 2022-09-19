@@ -41,4 +41,4 @@ jobs:
             sudo docker pull ferdibulus/stockappwebservice:latest
             sudo docker stop ( docker ps -a -q --filter ancestor=ferdibulus/stockappwebservice:latest )
             sudo docker rm ( docker ps -a -q --filter ancestor=ferdibulus/stockappwebservice:latest )
-            docker run -d -p 8181:8181 --network stock-app_default ferdibulus/stockappwebservice
+            sudo docker run -d -p 8181:8181 --network sqlcon ferdibulus/stockappwebservice
