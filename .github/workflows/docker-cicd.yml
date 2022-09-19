@@ -21,10 +21,10 @@ jobs:
         uses: actions/checkout@v2
       -
         name: Pull image to use as a cache
-        run: docker pull ghcr.io/ferdibulus/stockappwebservice:latest || exit 0
+        run: docker pull ferdibulus/stockappwebservice:latest || exit 0
       -
         name: Build Docker image
-        run: docker build . --cache-from ghcr.io/ferdibulus/stockappwebservice:latest --tag ghcr.io/ferdibulus/stockappwebservice:latest
+        run: docker build . --cache-from ferdibulus/stockappwebservice:latest --tag ferdibulus/stockappwebservice:latest
       -
         name: Push the image to GitHub Container Registry
         run: docker push ferdibulus/stockappwebservice:latest
