@@ -28,7 +28,7 @@ jobs:
         with:
           context: .
           push: true
-          tags : ferdibulus/stockappwebservice, ferdibulus/stockappwebservice:${{ github.run_number }}
+          tags : ferdibulus/stockappwebservice, ferdibulus/stockappwebservice:latest
       -
         name: VPS - pull image and run app containters
         uses: appleboy/ssh-action@master
@@ -37,5 +37,5 @@ jobs:
           username: ferdibulus
           password: Melez.Prens152@
           script: |
-            docker-compose pull web
+            docker-compose pull ferdibulus/stockappwebservice:latest
             docker-compose up -d --no-deps
