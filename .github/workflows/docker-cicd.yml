@@ -38,5 +38,4 @@ jobs:
           password: Melez.Prens152@
           port: 22
           script: |
-            docker-compose pull ferdibulus/stockappwebservice:latest
-            docker-compose up -d --no-deps
+            docker pull ferdibulus/stockappwebservice:latest
