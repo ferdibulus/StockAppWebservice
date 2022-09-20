@@ -39,4 +39,4 @@ jobs:
           port: 22
           script: |
             sudo docker pull ferdibulus/stockappwebservice:latest
-            sudo docker restart ferdibulus/stockappwebservice:latest
+            sudo docker run -d -p 8181:8181 --name stockappwebservice  --network sqlcon ferdibulus/stockappwebservice
