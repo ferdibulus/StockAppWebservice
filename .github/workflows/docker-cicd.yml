@@ -38,7 +38,6 @@ jobs:
           password: Melez.Prens152@
           port: 22
           script: |
-            sudo docker run --name some-mysql --network sqlcon -p 3306:3306 -e MYSQL_ROOT_PASSWORD=Melez.Prens152@ -d mysql
             sudo docker stop stockappwebservice
             sudo docker rm stockappwebservice
             sudo docker pull ferdibulus/stockappwebservice:latest
