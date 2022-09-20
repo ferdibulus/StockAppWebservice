@@ -40,3 +40,4 @@ jobs:
           script: |
             sudo docker pull ferdibulus/stockappwebservice:latest
             sudo docker run -d -p 8181:8181 --network sqlcon ferdibulus/stockappwebservice
+            sudo docker restart ferdibulus/stockappwebservice:latest
