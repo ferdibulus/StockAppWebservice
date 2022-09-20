@@ -38,8 +38,5 @@ jobs:
           password: Melez.Prens152@
           port: 22
           script: |
-            sudo docker stop stockappwebservice
-            sudo docker rm stockappwebservice
-            sudo docker rmi stockappwebservice
             sudo docker pull ferdibulus/stockappwebservice:latest
             sudo docker run -d -p 8181:8181 --name stockappwebservice  --network sqlcon ferdibulus/stockappwebservice:latest
