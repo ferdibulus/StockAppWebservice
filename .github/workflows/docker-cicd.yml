@@ -29,7 +29,6 @@ jobs:
           context: .
           push: true
           tags : ferdibulus/stockappwebservice, ferdibulus/stockappwebservice:latest
-          container_name: stockappwebservice
       -
         name: VPS - pull image and run app containters
         uses: appleboy/ssh-action@master
