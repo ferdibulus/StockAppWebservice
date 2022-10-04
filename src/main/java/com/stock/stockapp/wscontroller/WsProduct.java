@@ -12,10 +12,8 @@ public class WsProduct {
     ProductService productService;
     @Autowired
     SimpMessagingTemplate smpMsg;
-
-    @Scheduled(cron = "*/5 * * * * *")
-    public void informClient(){
+/*    public void informClient(){
         smpMsg.convertAndSend("/topic/Products",productService.getListOfProducts());
-    }
+    }*/
 
 }

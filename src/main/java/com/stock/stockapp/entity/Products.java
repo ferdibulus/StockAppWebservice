@@ -1,5 +1,6 @@
 package com.stock.stockapp.entity;
 
+import com.stock.stockapp.listeners.ProductsListener;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Entity(name = "products")
+@EntityListeners(ProductsListener.class)
 public class Products {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
