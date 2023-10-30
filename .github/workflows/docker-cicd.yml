@@ -1,3 +1,4 @@
+
 name: Release - Test, Build & Redeploy1
 
 on:
@@ -6,7 +7,8 @@ on:
 jobs:
   test:
     name: Test - Unit & Integration
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
+
     steps:
       - uses: actions/checkout@v1
       - name: Set up JDK 17
@@ -15,36 +17,26 @@ jobs:
           java-version: 17.0.0
       - name: Maven Package
         run: mvn -B clean package -DskipTests
-        
-  deploy:
-     name: deploy
-     runs-on: ubuntu-latest
-     steps:
-       - name: Login To DockerHub
-         uses: docker/login-action@v1
-         with:
+      -
+        name: Login To DockerHub
+        uses: docker/login-action@v1
+        with:
           username: ferdibulus
           password: dckr_pat_fUa49qOK2W0QiD2tJCDWAvZeYu4
-
-       - name: Extract metadata (tags, labels) for Docker
-         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-         with:
-            images: ferdibulus/stockappwebservice
-        
-       - name: Build and push Docker image
-         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-         with:
-            context: .
-            file: ./Dockerfile
-            push: true
-            tags : ferdibulus/stockappwebservice, ferdibulus/stockappwebservice:latest
-        
-       - name: VPS - pull image and run app containters
-         uses: appleboy/ssh-action@master
-         with:
+      -
+        name: Push the image to GitHub Container Registry
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags : ferdibulus/stockappwebservice, ferdibulus/stockappwebservice:latest
+      -
+        name: VPS - pull image and run app containters
+        uses: appleboy/ssh-action@master
+        with:
           host: 192.168.1.37
           username: ferdibulus
           password: Melez.Prens152
           port: 22
           script: |
-                sudo docker pull ferdibulus/stockappwebservice:latest
+            sudo docker pull ferdibulus/stockappwebservice:latest
