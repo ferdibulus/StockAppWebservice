@@ -25,14 +25,19 @@ jobs:
          with:
           username: ferdibulus
           password: dckr_pat_fUa49qOK2W0QiD2tJCDWAvZeYu4
-              
-       - name: Push the image to GitHub Container Registry
-         uses: docker/build-push-action@v5
+
+       - name: Extract metadata (tags, labels) for Docker
+         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
          with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags : ferdibulus/stockappwebservice, ferdibulus/stockappwebservice:latest
+            images: ferdibulus/stockappwebservice
+        
+       - name: Build and push Docker image
+         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+         with:
+            context: .
+            file: ./Dockerfile
+            push: true
+            tags : ferdibulus/stockappwebservice, ferdibulus/stockappwebservice:latest
         
        - name: VPS - pull image and run app containters
          uses: appleboy/ssh-action@master
