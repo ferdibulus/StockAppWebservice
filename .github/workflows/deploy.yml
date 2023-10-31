@@ -13,8 +13,9 @@ jobs:
         name: VPS - pull image and run app containters
         uses: appleboy/ssh-action@master
         with:
-          host:  https://192.168.1.36:22
+          host: 192.168.1.36
           username: ferdibulus
           password: Melez.Prens152
+          port: 22
           script: |
             sudo docker pull ferdibulus/stockappwebservice:latest
