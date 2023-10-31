@@ -13,7 +13,7 @@ jobs:
         name: VPS - pull image and run app containters
         uses: appleboy/ssh-action@master
         with:
-          host: 192.168.1.36
+          host: 192.168.1.38
           username: ferdibulus
           key: ${{ secrets.KEY }}
           port: 22
