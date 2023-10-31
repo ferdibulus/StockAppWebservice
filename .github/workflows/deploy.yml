@@ -15,7 +15,7 @@ jobs:
         with:
           host: 192.168.1.36
           username: ferdibulus
-          password: Melez.Prens152
+          key: ${{ secrets.KEY }}
           port: 22
           script: |
             sudo docker pull ferdibulus/stockappwebservice:latest
