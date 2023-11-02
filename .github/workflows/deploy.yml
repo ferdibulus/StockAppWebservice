@@ -13,7 +13,7 @@ jobs:
         name: VPS - pull image and run app containters
         uses: appleboy/ssh-action@v1.0.0
         with:
-            host: 192.168.1.38
+            host: https://192.168.1.38
             username: ferdibulus
             password: Melez.Prens152
             port: 22
