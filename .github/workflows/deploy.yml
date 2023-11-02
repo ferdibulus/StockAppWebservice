@@ -11,9 +11,9 @@ jobs:
     steps:
      -
         name: VPS - pull image and run app containters
-        uses: garygrossgarten/github-action-scp@release
+        uses: appleboy/ssh-action@v1.0.0
         with:
-            host: 192.168.1.38
+            host: 192.168.1.37
             username: ferdibulus
             password: Melez.Prens152  
             port: 22
