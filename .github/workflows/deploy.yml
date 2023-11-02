@@ -11,12 +11,11 @@ jobs:
     steps:
       -
         name: VPS - pull image and run app containters
-        uses: garygrossgarten/github-action-scp@release
+        uses: LuisEnMarroquin/setup-ssh-action@v2.0.0
         with:
-          host: 192.168.1.38
-          username: ferdibulus
-          password: Melez.Prens152  
-          port: 22
-          script: |
-            sudo docker pull ferdibulus/stockappwebservice:latest
+            ORIGIN: 192.168.1.38
+            SSHKEY: ${{ secrets.KEY }}
+            NAME: production
+            PORT: 22
+            USER: ferdibulus
         
