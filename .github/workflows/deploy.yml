@@ -18,6 +18,6 @@ jobs:
           NAME: production
           PORT: 22
           USER: ferdibulus
-          script: |
-            sudo docker pull ferdibulus/stockappwebservice:latest
+      - run: ssh production "sudo docker pull ferdibulus/stockappwebservice:latest"
+            
         
