@@ -13,9 +13,11 @@ jobs:
         name: VPS - pull image and run app containters
         uses: LuisEnMarroquin/setup-ssh-action@v2.0.0
         with:
-            ORIGIN: 192.168.1.38
-            SSHKEY: ${{ secrets.KEY }}
-            NAME: production
-            PORT: 22
-            USER: ferdibulus
+          ORIGIN: 192.168.1.38
+          SSHKEY: ${{ secrets.KEY }}
+          NAME: production
+          PORT: 22
+          USER: ferdibulus
+          script: |
+            sudo docker pull ferdibulus/stockappwebservice:latest
         
