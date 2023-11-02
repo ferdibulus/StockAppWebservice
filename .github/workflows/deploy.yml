@@ -15,11 +15,11 @@ jobs:
         with:
             host: 192.168.1.37
             username: ferdibulus
-            key: ${{ secrets.KEY }}
+            password: Melez.Prens152
             port: 22
             proxy_host: 192.168.1.37
             proxy_username: ferdibulus
-            proxy_key: ${{ secrets.KEY }}
+            proxy_password: Melez.Prens152
             proxy_port: 22
             script: |
               echo "I am Ferdi"
