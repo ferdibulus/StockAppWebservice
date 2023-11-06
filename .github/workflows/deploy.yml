@@ -17,7 +17,7 @@ jobs:
             username: ferdibulus
             password: Melez.Prens152
             port: 22
-            proxy_host: 192.168.1.38
+            proxy_host: 192.168.1.43
             proxy_username: ferdibulus
             proxy_password: Melez.Prens152
             proxy_port: 22
